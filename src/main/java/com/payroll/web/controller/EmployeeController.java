@@ -41,6 +41,8 @@ public class EmployeeController {
         return ResponseEntity.ok().body(employees);
     }
 
+
+
     @PostMapping("")
     public ResponseEntity<?> save(@Valid @RequestBody EmployeeDto employeeDto)
     {
@@ -59,6 +61,8 @@ public class EmployeeController {
                 entityModel.getRequiredLink(
                         IanaLinkRelations.SELF).toUri()).body(entityModel);
     }
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") Integer id){
@@ -109,7 +113,6 @@ public class EmployeeController {
 
             ResponseEntity.badRequest().body(employeeNotFoundException.getMessage());
         }
-
         return ResponseEntity.ok().body(entityModel);
     }
 }
